@@ -43,8 +43,6 @@ public class DemoController {
     @GetMapping("/city/sunriseAndset")
     public Map<String,String> getSunRiseandSetInaCity(@RequestParam String city){
         Map<String, Double> coordinates = geoCodingService.getCoordinates(city);
-        //"longitude",coOrdinatesList.results().getFirst().longitude(),"latitude"
         return sunRiseAndSetTimesService.getSunRiseAndSetTimings(coordinates.get("latitude"),coordinates.get("longitude"));
     }
-
 }
