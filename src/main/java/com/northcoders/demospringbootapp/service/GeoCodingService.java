@@ -1,4 +1,4 @@
-package com.northcoders.demospringbootapp.controller.service;
+package com.northcoders.demospringbootapp.service;
 
 import com.northcoders.demospringbootapp.model.Coordinates;
 import com.northcoders.demospringbootapp.model.GeoCodingsResponse;
@@ -21,7 +21,7 @@ public class GeoCodingService {
                 .bodyToMono(GeoCodingsResponse.class)
                 .block();
         if(coOrdinatesList != null){
-         return Map.of("latitude",coOrdinatesList.results().getFirst().latitude(),"longitude",coOrdinatesList.results().getFirst().longitude());
+         return Map.of("longitude",coOrdinatesList.results().getFirst().longitude(),"latitude",coOrdinatesList.results().getFirst().latitude());
         }
         return Map.of("latitude",0.0,"longitude",0.0);
     }
